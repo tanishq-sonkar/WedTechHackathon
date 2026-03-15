@@ -41,7 +41,13 @@ export default function RsvpsPage() {
         .order('submitted_at', { ascending: false });
       const rows = data ?? [];
       setRsvps(rows);
-      const names = [...new Set(rows.map((r: RsvpRow) => r.events?.name).filter(Boolean))] as string[];
+      const names = Array.from(
+      new Set(
+        rows
+          .map((r: RsvpRow) => r.events?.name)
+          .filter((name): name is string => Boolean(name))
+      )
+    );
       setEventNames(names);
       setLoading(false);
     }

@@ -68,10 +68,13 @@ export default function OnboardingPage() {
   }
 
   function updateEvent(i: number, field: keyof EventForm, value: string | number) {
-    const updated = [...events];
-    (updated[i] as Record<string, string | number>)[field] = value;
-    setEvents(updated);
-  }
+  const updated = [...events];
+  updated[i] = {
+    ...updated[i],
+    [field]: value,
+  };
+  setEvents(updated);
+}
 
   async function handleSubmit() {
     setLoading(true);
