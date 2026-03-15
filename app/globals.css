@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-dm-sans: 'DM Sans', system-ui, sans-serif;
+
+  /* Wedding palette */
+  --crimson: #C41E3A;
+  --crimson-dark: #8B0000;
+  --marigold: #F59E0B;
+  --marigold-light: #FCD34D;
+  --ivory: #FDF8F0;
+  --ivory-dark: #F5EDD8;
+  --emerald-w: #065F46;
+  --gold: #B8860B;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: var(--font-dm-sans);
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--ivory);
+}
+
+/* Decorative border utility */
+.border-ornate {
+  border-image: repeating-linear-gradient(
+    90deg,
+    var(--marigold) 0px,
+    var(--marigold) 4px,
+    transparent 4px,
+    transparent 12px,
+    var(--crimson) 12px,
+    var(--crimson) 16px,
+    transparent 16px,
+    transparent 24px
+  ) 4;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--ivory); }
+::-webkit-scrollbar-thumb { background: #d4a96a; border-radius: 3px; }
+
+/* Animations */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer {
+  background: linear-gradient(90deg, var(--marigold), var(--crimson), var(--marigold));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fadeUp 0.5s ease-out forwards; }
+
+@keyframes petals {
+  0%   { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
