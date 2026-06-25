@@ -1,4 +1,3 @@
-````markdown
 # WedWare — Wedding RSVP Management Platform
 
 WedWare is a full-stack wedding RSVP management platform built for the WedTech Hackathon problem statement P2. It helps wedding planners and families digitize the invitation and RSVP workflow by providing personalized RSVP links, event-wise response tracking, guest management, and planner-facing analytics.
